@@ -170,7 +170,7 @@ class ChatPortkey(SimpleChatModel):
             messages=_messages, stream=False, stop=stop, **kwargs
         )
         message = response.choices[0].message
-        return message.get("content", "") if message else ""
+        return message.content if message else ""
 
     def _create_message_dicts(
         self, messages: List[BaseMessage]
